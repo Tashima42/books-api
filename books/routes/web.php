@@ -16,3 +16,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'book'], function () use ($router) {
+    $router->get('authors', ['uses' => 'AuthorController@showAllAuthors']);
+    $router->get('authors/{author_id}', ['uses' => 'AuthorController@showOneAuthor']);
+    $router->post('authors', ['uses' => 'AuthorController@create']);
+    $router->delete('authors/{author_id}', ['uses' => 'AuthorController@delete']);
+    $router->put('authors/{author_id}', ['uses' => 'AuthorController@update']);
+});
