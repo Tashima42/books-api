@@ -14,7 +14,7 @@ class CreateLinksTable extends Migration
     public function up()
     {
         Schema::create('links', function (Blueprint $table) {
-            $table->increments('link_id');
+            $table->increments('id');
             $table->string('pdf');
             $table->string('mobi');
             $table->string('epub');
